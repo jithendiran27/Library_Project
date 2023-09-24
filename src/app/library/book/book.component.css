@@ -1,0 +1,39 @@
+.movieContainer{
+    overflow: hidden;
+    width: 400px;
+    height: 100%;
+    border-radius: 20px;
+    background-color: whitesmoke;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+img{
+    height: 400px;
+    width:100%;
+    object-fit:cover;
+}
+.details{
+    margin: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.description{
+    margin: 0.5rem;
+    padding-bottom: 2rem;
+}
+.likeDislike{
+    margin: 0.5rem;
+    display: flex;
+    gap: 0.7rem;
+}
+.likeDislike>button{
+    border: none;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px; 
+    text-align: center;
+    /* border: none; */
+    /* padding: 0%; */
+    /* margin: 40px 2px; */
+    /* font-size: 2rem; */
+}

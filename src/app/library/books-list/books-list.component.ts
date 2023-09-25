@@ -39,7 +39,7 @@ export class BooksListComponent {
       .pipe(
         debounceTime(1500),
         distinctUntilChanged(),
-        switchMap((name) => this.libraryService.searchMovieList(name || ''))
+        switchMap((name) => this.libraryService.searchBookList(name || ''))
       )
       .subscribe((mvList) => {
         this.bookList = mvList;

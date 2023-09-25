@@ -61,9 +61,9 @@ export class LibraryService {
   // setMovieList(newMovie: Movie) {
   //   return this.movies.push(newMovie);
   // }
-  searchMovieList(name: string) {
+  searchBookList(name: string) {
     return this.http.get<Book[]>(
-      `https://64f6f4259d7754084952d8a9.mockapi.io/Books?name=${name}`
+      `https://64f6f4259d7754084952d8a9.mockapi.io/Books?title=${name}`
     );
   }
 

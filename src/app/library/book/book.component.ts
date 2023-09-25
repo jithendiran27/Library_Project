@@ -54,7 +54,7 @@ export class BookComponent {
   }
   deleteMovie() {
     this.libraryService.deleteMovieById(this.book.id).subscribe(() => {
-      console.log('Movie deleted');
+      console.log('Book deleted');
       this.removeMovie.emit();
       // this.movieService.getMovieListFromMockApi();
       // this.router.navigate(["/movies"])

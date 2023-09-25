@@ -4,19 +4,20 @@ type Book = {
   id: string;
   title: string;
   author: string;
-  genre: string;
+  genres: Array<string>;
 
-  publishedYear: number;
+  publishedYear: string;
   description: string;
   coverImageUrl: string;
 
   // poster: string;
   rating: number;
   // summary: string;
-  trailer: string;
-  featured: boolean;
+  // trailer: string;
+  // featured: boolean;
   like: number;
   dislike: number;
+  languages: Array<string>;
   // date: string;
 };
 

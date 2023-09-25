@@ -28,7 +28,7 @@ export class AddBooksComponent {
     rating: [0, [Validators.required, Validators.min(1), Validators.max(10)]],
     publishedYear: ['', [Validators.required]],
     censorRating: ['', [Validators.required]],
-    genre: [[], [Validators.required]],
+    genres: [[], [Validators.required]],
     languages: [[], [Validators.required]],
     // cast: this.fb.array([]),
     coverImageUrl: [
@@ -40,14 +40,14 @@ export class AddBooksComponent {
       ],
     ],
     description: ['', [Validators.required, Validators.minLength(20)]],
-    trailer: [
-      '',
-      [
-        Validators.required,
-        Validators.minLength(5),
-        Validators.pattern('^http.*'),
-      ],
-    ],
+    // trailer: [
+    //   '',
+    //   [
+    //     Validators.required,
+    //     Validators.minLength(5),
+    //     Validators.pattern('^http.*'),
+    //   ],
+    // ],
   });
 
   // movieList;
@@ -62,6 +62,10 @@ export class AddBooksComponent {
 
   get title() {
     return this.movieForm?.get('name');
+  }
+
+  get author() {
+    return this.movieForm?.get('author');
   }
 
   get rating() {
@@ -82,9 +86,9 @@ export class AddBooksComponent {
   // get cast() {
   //   return this.movieForm.get('cast') as FormArray;
   // }
-  get genre() {
-    return this.movieForm?.get('genre');
-  }
+  // get genre() {
+  //   return this.movieForm?.get('genre');
+  // }
   get publishedYear() {
     return this.movieForm?.get('publishedYear');
   }

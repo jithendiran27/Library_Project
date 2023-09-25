@@ -24,9 +24,9 @@
 
   <div class="description">
     <em>{{ book?.publishedYear | date : "YYYY" }}</em>
-    <p>{{ book?.author }}</p>
-    <p>{{ book.genres?.join(" | ") }}</p>
-    <p>{{ book.languages?.join(" | ") }}</p>
+    <h3>{{ book?.author }}</h3>
+    <p>{{ book?.genres?.join(" | ") }}</p>
+    <p>{{ book?.languages?.join(" | ") }}</p>
     <p *ngIf="show">{{ book.description }}</p>
   </div>
   <div class="likeDislike">

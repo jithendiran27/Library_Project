@@ -31,21 +31,22 @@ export class LibraryService {
     );
   }
 
-  editMovieById(editedMovie: Book) {
-    const id = editedMovie.id;
+  editBookById(editedBook: Book) {
+    const id = editedBook.id;
+    console.log(id);
     return this.http.put(
       `https://64f6f4259d7754084952d8a9.mockapi.io/Books/${id}`,
-      editedMovie
+      editedBook
     );
   }
 
-  editMovie(editedMovie: Book) {
-    console.log(this.bookList);
-    const id = editedMovie.id;
-    const index = this.bookList.findIndex((bk) => bk.id === id);
-    this.bookList.splice(index, 1, editedMovie);
-    // this.movieList.push(newMovie);
-  }
+  // editMovie(editedBook: Book) {
+  //   console.log(this.bookList);
+  //   const id = editedBook.id;
+  //   const index = this.bookList.findIndex((bk) => bk.id === id);
+  //   this.bookList.splice(index, 1, editedBook);
+  //   // this.movieList.push(newMovie);
+  // }
   // addMovie(){
   //   return this.http.post<Movie[]>(
   //     'https://64f6f4259d7754084952d8a9.mockapi.io/movies', movie

@@ -12,6 +12,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -27,6 +30,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    // FormBuilder,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,1 +1,73 @@
-<p>book-details works!</p>
+<section class="movieContainer">
+  <img src="{{ book?.coverImageUrl }}" alt="{{ book?.name }}" class="poster" />
+  <div class="details">
+    <h2>
+      {{ book?.title }}
+      <!-- <button
+          (click)="toggleSummary()"
+          mat-icon-button
+          aria-label="Toggle Details"
+        >
+          <mat-icon *ngIf="show">expand_less</mat-icon>
+          <mat-icon *ngIf="!show">expand_more</mat-icon>
+        </button> -->
+      <!-- <button
+        (click)="movieDetailsPage()"
+        mat-icon-button
+        aria-label="Info page"
+      >
+        <mat-icon>info</mat-icon>
+      </button> -->
+    </h2>
+    <h2>⭐{{ book?.rating }}</h2>
+  </div>
+  <div class="authorName">
+    <h3>{{ book?.author }}</h3>
+    <h3>{{ book?.publishedYear }}</h3>
+  </div>
+
+  <div class="description">
+    <!-- <em>{{ book?.publishedYear | date : "YYYY" }}</em>
+    <h3>{{ book?.author }}</h3> -->
+    <p>{{ book?.genres?.join(" | ") }}</p>
+    <p>{{ book?.languages?.join(" | ") }}</p>
+    <p>{{ book.description }}</p>
+  </div>
+  <div class="likeDislike">
+    <!-- <button class="countBtn" (click)="increment()">👍 {{ count }}</button> -->
+    <button
+      mat-raised-icon-button
+      class="countBtn"
+      color="primary"
+      (click)="increment()"
+      matBadge="{{ count }}"
+      matBadgePosition="after"
+      matBadgeColor="accent"
+    >
+      <mat-icon>thumb_up</mat-icon>
+    </button>
+    <button
+      mat-raised-icon-button
+      class="countBtn"
+      color="primary"
+      (click)="decrement()"
+      matBadge="{{ dcount }}"
+      matBadgePosition="after"
+      matBadgeColor="accent"
+    >
+      <mat-icon>thumb_down</mat-icon>
+    </button>
+    <!-- <button class="countBtn" (click)="decrement()">👎 {{ dcount }}</button> -->
+  </div>
+  <button (click)="editPage()" mat-icon-button aria-label="Edit page">
+    <mat-icon>edit</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="deleteBtn"
+    color="primary"
+    (click)="deleteMovie()"
+  >
+    <mat-icon>delete</mat-icon>
+  </button>
+</section>

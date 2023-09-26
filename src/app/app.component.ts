@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+// import { MatSidenav } from '@angular/material';
 
 type Book = {
   id: string;
@@ -28,5 +31,22 @@ type Book = {
 })
 class AppComponent {
   title = 'Angular_Project';
+  @ViewChild('sidenav') sidenav: MatSidenav | undefined;
+  isExpanded = true;
+  showSubmenu: boolean = false;
+  isShowing = false;
+  showSubSubMenu: boolean = false;
+
+  mouseenter() {
+    if (!this.isExpanded) {
+      this.isShowing = true;
+    }
+  }
+
+  mouseleave() {
+    if (!this.isExpanded) {
+      this.isShowing = false;
+    }
+  }
 }
 export { Book, AppComponent };

@@ -25,6 +25,10 @@ import {
   MatChipInputEvent,
   MatChipsModule,
 } from '@angular/material/chips';
+// import { ViewChild } from '@angular/core';
+// // import { MatSidenav } from '@angular/material';
+// import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -52,6 +56,11 @@ import {
     MatSelectModule,
     MatListModule,
     MatChipsModule,
+    // Component,
+    // ViewChild,
+    // MatSidenavModule,
+    MatToolbarModule,
+    // MatSidenav
   ],
 })
 export class LibraryModule {}

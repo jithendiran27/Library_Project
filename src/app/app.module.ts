@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+// import { ToolBarComponent } from './tool-bar/tool-bar.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],

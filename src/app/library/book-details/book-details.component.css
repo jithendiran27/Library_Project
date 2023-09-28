@@ -12,14 +12,14 @@
     z-index: 10;
     transform: scale(1.1);
   } */
-.poster{
+img{
     /* height: 400px;
     width:100%;
     object-fit:cover; */
     display: flex;
     margin: 0 auto;
     height: 450px;
-    width: 300px;
+    width: 350px;
     object-fit: cover;
 }
 .details{

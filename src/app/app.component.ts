@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { LibraryService } from './library.service';
+import { Router } from '@angular/router';
 // import { MatSidenav } from '@angular/material';
 
 type Book = {
@@ -37,6 +39,7 @@ class AppComponent {
   isShowing = false;
   showSubSubMenu: boolean = false;
 
+  constructor(private router: Router, private libraryService: LibraryService) {}
   mouseenter() {
     if (!this.isExpanded) {
       this.isShowing = true;
@@ -47,6 +50,13 @@ class AppComponent {
     if (!this.isExpanded) {
       this.isShowing = false;
     }
+  }
+
+  add() {
+    this.router.navigate(['/library/add']);
+  }
+  home() {
+    this.router.navigate(['/library']);
   }
 }
 export { Book, AppComponent };

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Subject, debounceTime, switchMap } from 'rxjs';
 import { Book } from 'src/app/app.component';
 import { LibraryService } from 'src/app/library.service';
 
@@ -16,23 +16,38 @@ export class BookDetailsComponent {
   @Output() removeMovie = new EventEmitter();
   likeSubject = new Subject<number>();
   disLikeSubject = new Subject<number>();
+  // @Input() like: number = 0;
+  // @Input() disLike: number = 0;
+  // @Output() likeCount = new EventEmitter<number>();
+  // @Output() disLikeCount = new EventEmitter<number>();
 
   // book: Array<Book> = [];
 
-  count = 0;
-  increment() {
-    console.log('incrementing');
-    this.count++;
+  // count = 0;
+  // increment() {
+  //   console.log('incrementing');
+  //   this.book.like++;
+  // }
+  // // dcount = 0;
+  // decrement() {
+  //   console.log('decrementing');
+  //   this.book.dislike++;
+  // }
+  incrementLike() {
+    const d = this.book.like++;
+    // this.like++;
+    this.likeCount(d);
   }
-  dcount = 0;
-  decrement() {
-    console.log('decrementing');
-    this.dcount++;
+
+  incrementDisLike() {
+    const l = this.book.dislike++;
+    // this.disLike++;
+    this.disLikeCount(l);
   }
-  show = true;
-  toggleSummary() {
-    this.show = !this.show;
-  }
+  // show = true;
+  // toggleSummary() {
+  //   this.show = !this.show;
+  // }
   constructor(
     private router: ActivatedRoute,
     private route: Router,
@@ -40,24 +55,24 @@ export class BookDetailsComponent {
   ) {
     const { id } = this.router.snapshot.params;
     this.id = id;
-    //   this.likeSubject
-    //   .pipe(
-    //     debounceTime(2000),
-    //     switchMap((count) => {
-    //       // this.movie = { ...this.movie, like: count };
-    //       // return this.movieService.editMovieById(this.movie);
-    //     })
-    //   )
-    //   .subscribe();
-    // this.disLikeSubject
-    //   .pipe(
-    //     debounceTime(2000),
-    //     switchMap((count) => {
-    //       // this.movie = { ...this.movie, dislike: count };
-    //       // return this.movieService.editMovieById(this.movie);
-    //     })
-    // )
-    // .subscribe();
+    this.likeSubject
+      .pipe(
+        debounceTime(2000),
+        switchMap((count) => {
+          this.book = { ...this.book, like: count + 1 };
+          return this.libraryService.editBookById(this.book);
+        })
+      )
+      .subscribe();
+    this.disLikeSubject
+      .pipe(
+        debounceTime(2000),
+        switchMap((count) => {
+          this.book = { ...this.book, dislike: count + 1 };
+          return this.libraryService.editBookById(this.book);
+        })
+      )
+      .subscribe();
   }
   // movieDetailsPage() {
   //   this.router.navigate([`/library`, this.book.id]);
@@ -66,6 +81,7 @@ export class BookDetailsComponent {
     this.libraryService.deleteMovieById(this.book.id).subscribe(() => {
       console.log('Book deleted');
       this.removeMovie.emit();
+      this.route.navigate(['/library']);
       // this.movieService.getMovieListFromMockApi();
       // this.router.navigate(["/movies"])
     });
@@ -78,5 +94,13 @@ export class BookDetailsComponent {
     this.libraryService.getMovieById(this.id).subscribe((bk: any) => {
       this.book = { ...bk };
     });
+  }
+  likeCount(count: number) {
+    // publish data
+    this.likeSubject.next(count);
+  }
+
+  disLikeCount(count: number) {
+    this.disLikeSubject.next(count);
   }
 }

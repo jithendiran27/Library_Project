@@ -106,14 +106,14 @@ export class AddBooksComponent {
   //   this.cast.removeAt(index);
   // }
 
-  addMovie() {
+  addBook() {
     console.log('New Book Added');
 
     // if (this.movieForm.valid) {
-    const newMovie = this.movieForm.value;
-    console.log(newMovie);
-    // this.movieService.setMovieList(newMovie as Movie);
-    this.movieService.createMovie(newMovie as unknown as Book).subscribe(() => {
+    const newBook = this.movieForm.value;
+    console.log(newBook);
+    // this.movieService.setMovieList(newBook as Movie);
+    this.movieService.createBook(newBook as unknown as Book).subscribe(() => {
       this.router.navigate(['/library']);
     });
     // }

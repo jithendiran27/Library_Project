@@ -1,7 +1,12 @@
 .example-container {
     /* height: 500px; */
-    border: 1px solid rgba(0, 0, 0, 0.5);
+    /* border: 1px solid rgba(0, 0, 0, 0.5); */
     /* width: 200px; */
+    border: none;
+  }
+  header{
+    position: sticky;
+    top: 2px;
   }
   .example-sidenav-content {
     display: flex;
@@ -9,13 +14,28 @@
     align-items: center;
     justify-content: center;
     background-color: #e3e5ec;
+    
+  }
+  h1{
+    color: black;
+  }
+  mat-icon,span{
+    color: #096daa;
+  }
+  mat-toolbar{
+    background-color: #ffffff;
   }
   .example-sidenav {
      user-select: none;
+     /* width: 200px; */
+    background-color: #ffffff; 
+    /* color: black; */
+    border: none;
   }
   .full-width {
     width: 100%;
   }
+  
   .menu-button {
     transition: 300ms ease-in-out;
     transform: rotate(0deg);

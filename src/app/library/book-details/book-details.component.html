@@ -31,7 +31,7 @@
     <h3>{{ book?.author }}</h3> -->
     <p>{{ book?.genres?.join(" | ") }}</p>
     <p>{{ book?.languages?.join(" | ") }}</p>
-    <p>{{ book.description }}</p>
+    <p>{{ book?.description }}</p>
   </div>
   <div class="likeDislike">
     <!-- <button class="countBtn" (click)="increment()">👍 {{ count }}</button> -->
@@ -39,8 +39,8 @@
       mat-raised-icon-button
       class="countBtn"
       color="primary"
-      (click)="increment()"
-      matBadge="{{ count }}"
+      (click)="incrementLike()"
+      matBadge="{{ book?.like }}"
       matBadgePosition="after"
       matBadgeColor="accent"
     >
@@ -50,8 +50,8 @@
       mat-raised-icon-button
       class="countBtn"
       color="primary"
-      (click)="decrement()"
-      matBadge="{{ dcount }}"
+      (click)="incrementDisLike()"
+      matBadge="{{ book?.dislike }}"
       matBadgePosition="after"
       matBadgeColor="accent"
     >

@@ -24,10 +24,10 @@ export class LibraryService {
     );
   }
 
-  createMovie(newMovie: Book) {
+  createBook(newBook: Book) {
     return this.http.post(
       `https://64f6f4259d7754084952d8a9.mockapi.io/Books`,
-      newMovie
+      newBook
     );
   }
 

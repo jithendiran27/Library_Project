@@ -1,10 +1,34 @@
-<div class="search">
+<!-- <div class="search">
   <form [formGroup]="searchForm" class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Search Books</mat-label>
       <mat-icon matPrefix>search</mat-icon>
       <input formControlName="search" color="warn" type="text" matInput />
     </mat-form-field>
+  </form>
+</div> -->
+<div class="search">
+  <form [formGroup]="searchForm" class="search-form">
+    <input
+      formControlName="search"
+      class="searchBar"
+      type="search"
+      name="search_book"
+      placeholder="Search Books"
+      list="search_list"
+    />
+
+    <datalist
+      id="search_list"
+      *ngIf="
+        searchForm.get('search')?.value !== null &&
+        searchForm.get('search')?.value !== ''
+      "
+    >
+      <option class="option" *ngFor="let mv of bookList" value="{{ mv.title }}">
+        <!-- {{ mv.title }} -->
+      </option>
+    </datalist>
   </form>
 </div>
 <section class="movies">

@@ -17,6 +17,7 @@ import { LibraryService } from 'src/app/library.service';
 export class BooksListComponent {
   bookList: Array<Book> = [];
   getMovieList: Subscription | any;
+  search_book: string = '';
   // movieService: any;
   searchForm = this.fb.group({
     search: '',
@@ -25,6 +26,7 @@ export class BooksListComponent {
   get search() {
     return this.searchForm.get('search');
   }
+
   constructor(private libraryService: LibraryService, private fb: FormBuilder) {
     // this.moviesList = movieService.movies;
   }
@@ -34,7 +36,6 @@ export class BooksListComponent {
     //   .subscribe((mvList: any) => {
     //     this.movieList = mvList;
     //   });
-
     this.search?.valueChanges
       .pipe(
         debounceTime(1500),
@@ -53,6 +54,7 @@ export class BooksListComponent {
       .subscribe((mvList: any) => {
         this.bookList = mvList;
       });
+    console.log(this.search_book);
   }
 
   ngOnDestroy() {

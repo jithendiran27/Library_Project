@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { LibraryService } from './library.service';
@@ -32,6 +32,8 @@ type Book = {
   styleUrls: ['./app.component.css'],
 })
 class AppComponent {
+  // @Input() book: any;
+  bookList: Array<Book> = [];
   title = 'Angular_Project';
   @ViewChild('sidenav') sidenav: MatSidenav | undefined;
   isExpanded = true;
@@ -57,6 +59,13 @@ class AppComponent {
   }
   home() {
     this.router.navigate(['/library']);
+  }
+  showOptions() {
+    // return $('.option').show();
+  }
+
+  hideOptions() {
+    // $('.option').hide();
   }
 }
 export { Book, AppComponent };

@@ -7,34 +7,40 @@
     </mat-form-field>
   </form>
 </div> -->
-<div class="search">
-  <form [formGroup]="searchForm" class="search-form">
-    <input
-      formControlName="search"
-      class="searchBar"
-      type="search"
-      name="search_book"
-      placeholder="Search Books"
-      list="search_list"
-    />
+<div class="whole">
+  <div class="search">
+    <form [formGroup]="searchForm" class="search-form">
+      <input
+        formControlName="search"
+        class="searchBar"
+        type="search"
+        name="search_book"
+        placeholder="Search Books"
+        list="search_list"
+      />
 
-    <datalist
-      id="search_list"
-      *ngIf="
-        searchForm.get('search')?.value !== null &&
-        searchForm.get('search')?.value !== ''
-      "
-    >
-      <option class="option" *ngFor="let mv of bookList" value="{{ mv.title }}">
-        <!-- {{ mv.title }} -->
-      </option>
-    </datalist>
-  </form>
+      <datalist
+        id="search_list"
+        *ngIf="
+          searchForm.get('search')?.value !== null &&
+          searchForm.get('search')?.value !== ''
+        "
+      >
+        <option
+          class="option"
+          *ngFor="let mv of bookList"
+          value="{{ mv.title }}"
+        >
+          <!-- {{ mv.title }} -->
+        </option>
+      </datalist>
+    </form>
+  </div>
+  <section class="movies">
+    <app-book
+      *ngFor="let mv of bookList; let i = index"
+      [book]="mv"
+      (removeMovie)="loadBooksData()"
+    ></app-book>
+  </section>
 </div>
-<section class="movies">
-  <app-book
-    *ngFor="let mv of bookList; let i = index"
-    [book]="mv"
-    (removeMovie)="loadBooksData()"
-  ></app-book>
-</section>

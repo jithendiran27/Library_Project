@@ -1,7 +1,7 @@
 <section class="movieContainer">
   <img src="{{ book?.coverImageUrl }}" alt="{{ book?.name }}" class="poster" />
   <div class="details">
-    <h2>
+    <h1>
       {{ book?.title }}
       <!-- <button
           (click)="toggleSummary()"
@@ -18,20 +18,20 @@
       >
         <mat-icon>info</mat-icon>
       </button> -->
-    </h2>
-    <h2>⭐{{ book?.rating }}</h2>
+    </h1>
+    <h1>⭐{{ book?.rating }}</h1>
   </div>
   <div class="authorName">
-    <h3>{{ book?.author }}</h3>
-    <h3>{{ book?.publishedYear }}</h3>
+    <h3><strong>Author: </strong>{{ book?.author }}</h3>
+    <h3><strong>Published Year: </strong>{{ book?.publishedYear }}</h3>
   </div>
 
   <div class="description">
     <!-- <em>{{ book?.publishedYear | date : "YYYY" }}</em>
     <h3>{{ book?.author }}</h3> -->
-    <p>{{ book?.genres?.join(" | ") }}</p>
-    <p>{{ book?.languages?.join(" | ") }}</p>
-    <p>{{ book?.description }}</p>
+    <p><strong>Genre: </strong>{{ book?.genres?.join(" | ") }}</p>
+    <p><strong>Language: </strong>{{ book?.languages?.join(" | ") }}</p>
+    <p><strong>About: </strong><br />{{ book?.description }}</p>
   </div>
   <div class="likeDislike">
     <!-- <button class="countBtn" (click)="increment()">👍 {{ count }}</button> -->

@@ -1,25 +1,18 @@
 .movieContainer{
+    margin-top: 50px;
     overflow: hidden;
     width: 100%;
-    /* height: 100%; */
-    /* border-radius: 20px; */
-    background-color: whitesmoke;
+    background-color: #e3e5ec;
     transition: 0.2s transform;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     color: black;
+    /* padding: 30px; */
 }
-/* .movieContainer:hover {
-    z-index: 10;
-    transform: scale(1.1);
-  } */
+
 img{
-    /* height: 400px;
-    width:100%;
-    object-fit:cover; */
+    padding: 50px;
     display: flex;
     margin: 0 auto;
     height: 450px;
-    width: 350px;
     object-fit: cover;
 }
 .details{
@@ -27,12 +20,14 @@ img{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* margin-right: 200px; */
 }
 .authorName{
     margin: 0.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* margin-right: 200px; */
 
 }
 .description{
@@ -50,6 +45,7 @@ img{
     height: 40px;
     width: 40px; 
     text-align: center;
+    background-color: #e3e5ec;
     /* border: none; */
     /* padding: 0%; */
     /* margin: 40px 2px; */

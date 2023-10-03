@@ -2,44 +2,10 @@
   <mat-toolbar>
     <div class="top-bar">
       <button mat-button (click)="isExpanded = !isExpanded">
-        <mat-icon
-          ><span class="material-symbols-outlined"> menu_book </span></mat-icon
-        >
-
+        <mat-icon class="book"> menu_book </mat-icon>
         <h1 class="example-app-name">Library</h1>
       </button>
     </div>
-    <!-- <div class="search">
-      <form class="search-form">
-        <input
-          type="search"
-          name="search_book"
-          placeholder="Search Books"
-          list="search_list"
-        />
-        <datalist id="search_list">
-          <option
-            class="option"
-            *ngFor="let mv of bookList"
-            value="{{ mv.title }}"
-          >
-            {{ mv.title }}
-          </option>
-          <option class="option" value="C++">C++</option>
-          <option class="option" value="C#">C#</option>
-          <option class="option" value="Cobol">Cobol</option>
-          <option value="Go">Go</option>
-          <option value="Java">Java</option>
-          <option value="JavaScript">JavaScript</option>
-          <option value="Python">Python</option>
-          <option value="PHP">PHP</option>
-          <option value="Pascal">Pascal</option>
-          <option value="Perl">Perl</option>
-          <option value="R">R</option>
-          <option value="Swift">Swift</option>
-        </datalist>
-      </form>
-    </div> -->
   </mat-toolbar>
 </header>
 <mat-sidenav-container class="example-container" autosize>
@@ -59,18 +25,18 @@
       <!-- </button> -->
       <!-- </mat-list-item> -->
       <mat-list-item (click)="home()" class="parent">
-        <span class="full-width" *ngIf="isExpanded || isShowing">Home</span>
-        <mat-icon mat-list-icon>home</mat-icon>
-        <!-- <mat-icon
-          class="menu-button"
-          [ngClass]="{ rotated: showSubmenu }"
-          *ngIf="isExpanded || isShowing"
-          >expand_more</mat-icon
-        > -->
+        <div class="icon-text">
+          <mat-icon mat-list-icon>home</mat-icon>
+          <span class="full-width" *ngIf="isExpanded || isShowing">Home</span>
+        </div>
       </mat-list-item>
       <mat-list-item (click)="add()" class="parent">
-        <span class="full-width" *ngIf="isExpanded || isShowing">Add Book</span>
-        <mat-icon mat-list-icon>add</mat-icon>
+        <div class="icon-text">
+          <mat-icon mat-list-icon>add</mat-icon>
+          <span class="full-width" *ngIf="isExpanded || isShowing"
+            >Add Book</span
+          >
+        </div>
         <!-- <mat-icon
           class="menu-button"
           [ngClass]="{ rotated: showSubmenu }"

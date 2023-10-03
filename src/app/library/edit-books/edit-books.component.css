@@ -6,8 +6,8 @@
     margin-top: 70px;
     gap: 0.5rem;
     padding: 20px;
-    /* background-color: black; */
-    color: white;
+    background: gray;
+
 }
 .mat-mdc-radio-button ~ .mat-mdc-radio-button {
     margin-left: 16px;

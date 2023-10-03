@@ -1,4 +1,4 @@
-<header class="inputs">
+<section class="inputs">
   <form [formGroup]="movieForm" (ngSubmit)="addBook()" class="add-Movie-Form">
     <mat-form-field>
       <mat-label>Title Name</mat-label>
@@ -28,17 +28,28 @@
 
     <mat-form-field>
       <mat-label>Choose a date</mat-label>
-      <input
+      <!-- <input
         formControlName="publishedYear"
         matInput
         [matDatepicker]="picker"
-      />
-      <mat-hint>MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle
+      /> -->
+      <input matInput formControlName="publishedYear" />
+      <mat-hint>YYYY</mat-hint>
+      <mat-error
+        *ngIf="publishedYear?.touched && publishedYear?.hasError('required')"
+      >
+        Why not fill this field 😉?
+      </mat-error>
+      <mat-error
+        *ngIf="publishedYear?.touched && publishedYear?.hasError('minlength')"
+      >
+        Please provide full year
+      </mat-error>
+      <!-- <mat-datepicker-toggle
         matIconSuffix
         [for]="picker"
       ></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <mat-datepicker #picker></mat-datepicker> -->
     </mat-form-field>
 
     <!-- <h3>Censor Rating</h3>
@@ -64,7 +75,7 @@
 
     <h3>Languages</h3>
 
-    <mat-selection-list formControlName="languages" color="primary">
+    <mat-selection-list formControlName="languages" color="accent">
       <mat-list-option
         *ngFor="let language of languages"
         [value]="language.value"
@@ -177,4 +188,4 @@
       {{ "Add Movie" | uppercase }}
     </button>
   </form>
-</header>
+</section>

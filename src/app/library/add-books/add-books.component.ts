@@ -26,7 +26,7 @@ export class AddBooksComponent {
     author: ['', [Validators.required, Validators.minLength(5)]],
     featured: [false],
     rating: [0, [Validators.required, Validators.min(1), Validators.max(10)]],
-    publishedYear: ['', [Validators.required]],
+    publishedYear: [0, [Validators.required, Validators.minLength(4)]],
     censorRating: ['', [Validators.required]],
     genres: [[], [Validators.required]],
     languages: [[], [Validators.required]],

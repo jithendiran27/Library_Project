@@ -11,7 +11,7 @@ type Book = {
   author: string;
   genres: Array<string>;
 
-  publishedYear: string;
+  publishedYear: number;
   description: string;
   coverImageUrl: string;
 

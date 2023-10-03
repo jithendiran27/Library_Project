@@ -46,7 +46,7 @@ export class EditBooksComponent {
     author: '',
     genres: [''],
     coverImageUrl: '',
-    publishedYear: '',
+    publishedYear: 0,
     rating: 0,
     description: '',
     like: 0,
@@ -58,11 +58,11 @@ export class EditBooksComponent {
     id: '',
     like: 0,
     dislike: 0,
-    title: ['', [Validators.required, Validators.minLength(5)]],
-    author: ['', [Validators.required, Validators.minLength(5)]],
+    title: ['', [Validators.required]],
+    author: ['', [Validators.required]],
     // featured: [false],
-    rating: [0, [Validators.required, Validators.min(1), Validators.max(10)]],
-    publishedYear: ['', [Validators.required]],
+    rating: [0, [Validators.required, Validators.min(1), Validators.max(5)]],
+    publishedYear: [0, [Validators.required, Validators.minLength(4)]],
     // censorRating: ['', [Validators.required]],
     genres: [[''], [Validators.required]],
     languages: [[''], [Validators.required]],
@@ -107,6 +107,10 @@ export class EditBooksComponent {
 
   get title() {
     return this.movieForm?.get('name');
+  }
+
+  get author() {
+    return this.movieForm?.get('author');
   }
 
   get rating() {

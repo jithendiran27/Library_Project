@@ -12,9 +12,9 @@ import { LibraryService } from 'src/app/library.service';
 export class EditBooksComponent {
   languages = [
     { label: 'English', value: 'English' },
-    // { label: 'Tamil', value: 'TM' },
     { label: 'Spanish', value: 'Spanish' },
-    // Add other languages here
+    { label: 'French', value: 'French' },
+    { label: 'German', value: 'German' },
   ];
 
   genres = [
@@ -56,8 +56,8 @@ export class EditBooksComponent {
 
   movieForm = this.fb.group({
     id: '',
-    like: 0,
-    dislike: 0,
+    like: [0, [Validators.required]],
+    dislike: [0, [Validators.required]],
     title: ['', [Validators.required]],
     author: ['', [Validators.required]],
     // featured: [false],
@@ -77,17 +77,8 @@ export class EditBooksComponent {
       ],
     ],
     description: ['', [Validators.required, Validators.minLength(20)]],
-    // trailer: [
-    //   '',
-    //   [
-    //     Validators.required,
-    //     Validators.minLength(5),
-    //     Validators.pattern('^http.*'),
-    //   ],
-    // ],
   });
-  // movieList;
-  // DI - Dependency Injection
+
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
@@ -116,6 +107,12 @@ export class EditBooksComponent {
   get rating() {
     return this.movieForm?.get('rating');
   }
+  get like() {
+    return this.movieForm?.get('like');
+  }
+  get dislike() {
+    return this.movieForm?.get('dislike');
+  }
 
   get coverImageUrl() {
     return this.movieForm?.get('coverImageUrl');
@@ -128,12 +125,7 @@ export class EditBooksComponent {
   get trailer() {
     return this.movieForm?.get('trailer');
   }
-  // get cast() {
-  //   return this.movieForm.get('cast') as FormArray;
-  // }
-  // get genre() {
-  //   return this.movieForm?.get('genre');
-  // }
+
   get publishedYear() {
     return this.movieForm?.get('publishedYear');
   }

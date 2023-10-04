@@ -22,15 +22,17 @@ export class AddBooksComponent {
   movieForm = this.fb.group({
     like: 0,
     dislike: 0,
-    title: ['', [Validators.required, Validators.minLength(5)]],
-    author: ['', [Validators.required, Validators.minLength(5)]],
-    featured: [false],
-    rating: [0, [Validators.required, Validators.min(1), Validators.max(10)]],
-    publishedYear: [0, [Validators.required, Validators.minLength(4)]],
-    censorRating: ['', [Validators.required]],
+    title: ['', [Validators.required]],
+    author: ['', [Validators.required]],
+    // featured: [false],
+    rating: [0, [Validators.required, Validators.min(0), Validators.max(5)]],
+    publishedYear: [
+      0,
+      [Validators.required, Validators.minLength(4), Validators.maxLength(4)],
+    ],
+    // censorRating: ['', [Validators.required]],
     genres: [[], [Validators.required]],
     languages: [[], [Validators.required]],
-    // cast: this.fb.array([]),
     coverImageUrl: [
       '',
       [
@@ -40,25 +42,13 @@ export class AddBooksComponent {
       ],
     ],
     description: ['', [Validators.required, Validators.minLength(20)]],
-    // trailer: [
-    //   '',
-    //   [
-    //     Validators.required,
-    //     Validators.minLength(5),
-    //     Validators.pattern('^http.*'),
-    //   ],
-    // ],
   });
 
-  // movieList;
-  // DI - Dependency Injection
   constructor(
     private movieService: LibraryService,
     private router: Router,
     private fb: FormBuilder
-  ) {
-    // this.movieList = movieService.getMovieList();
-  }
+  ) {}
 
   get title() {
     return this.movieForm?.get('name');
@@ -83,28 +73,10 @@ export class AddBooksComponent {
   get trailer() {
     return this.movieForm?.get('trailer');
   }
-  // get cast() {
-  //   return this.movieForm.get('cast') as FormArray;
-  // }
-  // get genre() {
-  //   return this.movieForm?.get('genre');
-  // }
+
   get publishedYear() {
     return this.movieForm?.get('publishedYear');
   }
-
-  // addCastName(event: MatChipInputEvent) {
-  //   const name = (event.value || '').trim();
-  //   if (name) {
-  //     this.cast.push(this.fb.control(name));
-  //   }
-
-  //   event.chipInput!.clear();
-  // }
-
-  // removeCastName(index: number) {
-  //   this.cast.removeAt(index);
-  // }
 
   addBook() {
     console.log('New Book Added');

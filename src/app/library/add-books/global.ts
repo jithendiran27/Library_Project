@@ -1,14 +1,14 @@
 export const LANGUAGES = [
   { label: 'English', value: 'English' },
   { label: 'Spanish', value: 'Spanish' },
-  // { label: 'Hindi', value: 'HI' },
-  // { label: 'Bengali', value: 'BN' },
+  { label: 'French', value: 'French' },
+  { label: 'German', value: 'German' },
   // { label: 'Telugu', value: 'TE' },
   // { label: 'Marathi', value: 'MR' },
   // { label: 'Kannada', value: 'KN' },
   // { label: 'Gujarati', value: 'GU' },
   // { label: 'Malayalam', value: 'ML' },
-  // { label: 'Tamil', value: 'TA' },
+  // { label: 'Tamil', value: 'Tamil' },
 ];
 export const GENRES = [
   { label: 'Action', value: 'Action' },

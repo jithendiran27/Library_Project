@@ -4,7 +4,7 @@
     <h1>
       {{ book?.title }}
     </h1>
-    <h1>⭐{{ book?.rating }}</h1>
+    <h1><mat-icon class="star">star</mat-icon>{{ book?.rating }}</h1>
   </div>
   <div class="authorName">
     <h3><strong>Author: </strong>{{ book?.author }}</h3>
@@ -40,15 +40,17 @@
       <mat-icon>thumb_down</mat-icon>
     </button>
   </div>
-  <button (click)="editPage()" mat-icon-button aria-label="Edit page">
-    <mat-icon>edit</mat-icon>
-  </button>
-  <button
-    mat-icon-button
-    class="deleteBtn"
-    color="primary"
-    (click)="deleteMovie()"
-  >
-    <mat-icon>delete</mat-icon>
-  </button>
+  <div class="edit-delete">
+    <button (click)="editPage()" mat-icon-button aria-label="Edit page">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="deleteBtn"
+      color="primary"
+      (click)="deleteMovie()"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
 </section>

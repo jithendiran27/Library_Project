@@ -1,24 +1,14 @@
-<section class="movieContainer" (click)="movieDetailsPage()">
-  <img src="{{ book.coverImageUrl }}" alt="{{ book.name }}" class="poster" />
+<section class="movieContainer">
+  <img
+    (click)="movieDetailsPage()"
+    src="{{ book.coverImageUrl }}"
+    alt="{{ book.name }}"
+    class="poster"
+  />
   <div class="detailsContainer">
     <div class="details">
       <h4>
         {{ book.title }}
-        <!-- <button
-        (click)="toggleSummary()"
-        mat-icon-button
-        aria-label="Toggle Details"
-      >
-        <mat-icon *ngIf="show">expand_less</mat-icon>
-        <mat-icon *ngIf="!show">expand_more</mat-icon>
-      </button> -->
-        <!-- <button
-        (click)="movieDetailsPage()"
-        mat-icon-button
-        aria-label="Info page"
-      >
-        <mat-icon>info</mat-icon>
-      </button> -->
       </h4>
       <!-- <div class="star-rating"> -->
       <h4 class="star-rating">

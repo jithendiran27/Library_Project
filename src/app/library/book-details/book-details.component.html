@@ -3,21 +3,6 @@
   <div class="details">
     <h1>
       {{ book?.title }}
-      <!-- <button
-          (click)="toggleSummary()"
-          mat-icon-button
-          aria-label="Toggle Details"
-        >
-          <mat-icon *ngIf="show">expand_less</mat-icon>
-          <mat-icon *ngIf="!show">expand_more</mat-icon>
-        </button> -->
-      <!-- <button
-        (click)="movieDetailsPage()"
-        mat-icon-button
-        aria-label="Info page"
-      >
-        <mat-icon>info</mat-icon>
-      </button> -->
     </h1>
     <h1>⭐{{ book?.rating }}</h1>
   </div>
@@ -27,14 +12,11 @@
   </div>
 
   <div class="description">
-    <!-- <em>{{ book?.publishedYear | date : "YYYY" }}</em>
-    <h3>{{ book?.author }}</h3> -->
     <p><strong>Genre: </strong>{{ book?.genres?.join(" | ") }}</p>
     <p><strong>Language: </strong>{{ book?.languages?.join(" | ") }}</p>
     <p><strong>About: </strong><br />{{ book?.description }}</p>
   </div>
   <div class="likeDislike">
-    <!-- <button class="countBtn" (click)="increment()">👍 {{ count }}</button> -->
     <button
       mat-raised-icon-button
       class="countBtn"
@@ -57,7 +39,6 @@
     >
       <mat-icon>thumb_down</mat-icon>
     </button>
-    <!-- <button class="countBtn" (click)="decrement()">👎 {{ dcount }}</button> -->
   </div>
   <button (click)="editPage()" mat-icon-button aria-label="Edit page">
     <mat-icon>edit</mat-icon>

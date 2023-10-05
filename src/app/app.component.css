@@ -2,13 +2,15 @@
     border: none;
   }
   body{
-    position: relative;
+    
   }
   .example-sidenav-content {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     background: #e3e5ec;
+    border: none;
   }
 
   mat-icon,span,h1{
@@ -31,26 +33,73 @@
   }
   mat-toolbar{
     background-color: #ffffff;
+    padding: 0px;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    /* padding: 10px; */
+    /* padding-right: 0%;
+    margin: 0px;
+    gap: 20%; */
   }
   .example-sidenav {
      user-select: none;
     background-color: #ffffff; 
     position: fixed;
     top: 50px;
+    display: none;
   }
   .full-width {
     width: 100%;
   }
   .top-bar{
     padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
   }
   .icon-text{
     display: flex;
     align-items: center;
-    /* gap: 5px; */
     text-align: center;
+  }
+
+  span{
+    display: none;
+  }
+
+  mat-nav-list{
+    display: flex;
+    flex-direction: row;
+  }
+
+  @media(min-width:400px){
+    .example-sidenav {
+      user-select: none;
+     background-color: #ffffff; 
+     position: fixed;
+     top: 50px;
+     display:inline;
+     /* border: none; */
+   }
+   span{
+    display: inline;
+  }
+  .left{
+    display: none;
+  }
+  mat-toolbar{
+    padding: 10px;
+  }
+
+  mat-nav-list{
+    display: flex;
+    flex-direction: column;
+  }
+
   }

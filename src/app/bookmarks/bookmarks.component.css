@@ -1,0 +1,8 @@
+.bookmarkedList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 12rem;
+    gap: 3rem;
+    padding: 5%;
+}

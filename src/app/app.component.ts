@@ -19,7 +19,7 @@ type Book = {
   rating: number;
   // summary: string;
   // trailer: string;
-  // featured: boolean;
+  bookmark: boolean;
   like: number;
   dislike: number;
   languages: Array<string>;
@@ -60,12 +60,8 @@ class AppComponent {
   home() {
     this.router.navigate(['/library']);
   }
-  showOptions() {
-    // return $('.option').show();
-  }
-
-  hideOptions() {
-    // $('.option').hide();
+  bookmarksList() {
+    this.router.navigate(['/bookmarks']);
   }
 }
 export { Book, AppComponent };

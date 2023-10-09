@@ -4,6 +4,7 @@ import { BooksListComponent } from './books-list/books-list.component';
 import { AddBooksComponent } from './add-books/add-books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { EditBooksComponent } from './edit-books/edit-books.component';
+import { BookmarksComponent } from '../bookmarks/bookmarks.component';
 
 const routes: Routes = [
   { path: '', component: BooksListComponent, pathMatch: 'full' },

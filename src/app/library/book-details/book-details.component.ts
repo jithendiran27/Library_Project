@@ -16,23 +16,7 @@ export class BookDetailsComponent {
   @Output() removeMovie = new EventEmitter();
   likeSubject = new Subject<number>();
   disLikeSubject = new Subject<number>();
-  // @Input() like: number = 0;
-  // @Input() disLike: number = 0;
-  // @Output() likeCount = new EventEmitter<number>();
-  // @Output() disLikeCount = new EventEmitter<number>();
 
-  // book: Array<Book> = [];
-
-  // count = 0;
-  // increment() {
-  //   console.log('incrementing');
-  //   this.book.like++;
-  // }
-  // // dcount = 0;
-  // decrement() {
-  //   console.log('decrementing');
-  //   this.book.dislike++;
-  // }
   incrementLike() {
     const d = this.book.like++;
     // this.like++;
@@ -44,10 +28,15 @@ export class BookDetailsComponent {
     // this.disLike++;
     this.disLikeCount(l);
   }
-  // show = true;
-  // toggleSummary() {
-  //   this.show = !this.show;
-  // }
+
+  // bookmark = false;
+  changeBookmark() {
+    this.book.bookmark = !this.book.bookmark;
+    this.libraryService.updateBookmark(this.book as Book).subscribe(() => {
+      // this.router.navigate(['/library']);
+    });
+  }
+
   constructor(
     private router: ActivatedRoute,
     private route: Router,
@@ -74,9 +63,7 @@ export class BookDetailsComponent {
       )
       .subscribe();
   }
-  // movieDetailsPage() {
-  //   this.router.navigate([`/library`, this.book.id]);
-  // }
+
   deleteMovie() {
     this.libraryService.deleteMovieById(this.book.id).subscribe(() => {
       console.log('Book deleted');
@@ -103,4 +90,5 @@ export class BookDetailsComponent {
   disLikeCount(count: number) {
     this.disLikeSubject.next(count);
   }
+  
 }

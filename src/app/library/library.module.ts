@@ -29,6 +29,7 @@ import {
 // // import { MatSidenav } from '@angular/material';
 // import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { BookmarksComponent } from '../bookmarks/bookmarks.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AddBooksComponent,
     EditBooksComponent,
     BookDetailsComponent,
+    BookmarksComponent,
   ],
   imports: [
     CommonModule,

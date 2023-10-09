@@ -1,5 +1,15 @@
 <section class="movieContainer">
+  <div class="top">
   <img src="{{ book?.coverImageUrl }}" alt="{{ book?.name }}" class="poster" />
+  <div class="bookmarks">
+    <button (click)="changeBookmark()"  class="bookmarkBtn">
+      <mat-icon *ngIf="book?.bookmark; else moreIcon" class="unbookmark">bookmark</mat-icon>
+      <ng-template #moreIcon>
+        <mat-icon class="bookmark">bookmark</mat-icon>
+      </ng-template>
+    </button>
+  </div>
+  </div>
   <div class="details">
     <h1>
       {{ book?.title }}
@@ -53,4 +63,5 @@
       <mat-icon>delete</mat-icon>
     </button>
   </div>
+  
 </section>

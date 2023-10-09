@@ -27,7 +27,6 @@
 
   .toolbar{
     position: fixed;
-    /* top: 10px; */
     z-index: 2;
     width: 100%;
   }
@@ -38,13 +37,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: space-between; */
-    /* padding: 10px; */
-    /* padding-right: 0%;
-    margin: 0px;
-    gap: 20%; */
   }
   .example-sidenav {
      user-select: none;
@@ -95,6 +87,7 @@
   }
   mat-toolbar{
     padding: 10px;
+    
   }
 
   mat-nav-list{

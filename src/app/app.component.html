@@ -1,6 +1,5 @@
 <header class="toolbar">
   <mat-toolbar>
-    <!-- <div class="top-bar"> -->
     <button mat-button (click)="isExpanded = !isExpanded">
       <mat-icon class="book"> menu_book </mat-icon>
       <h1 class="example-app-name">Library</h1>
@@ -16,14 +15,21 @@
         <mat-list-item (click)="add()" class="parent">
           <div class="icon-text">
             <mat-icon mat-list-icon>add</mat-icon>
-            <span class="full-width" *ngIf="isExpanded || isShowing"
-              >Add Book</span
-            >
+            <span class="full-width" *ngIf="isExpanded || isShowing">
+              Add Book
+            </span>
+          </div>
+        </mat-list-item>
+        <mat-list-item (click)="bookmarksList()" class="parent">
+          <div class="icon-text">
+            <mat-icon mat-list-icon>bookmarks</mat-icon>
+            <span class="full-width" *ngIf="isExpanded || isShowing">
+              Bookmarks
+            </span>
           </div>
         </mat-list-item>
       </mat-nav-list>
     </div>
-    <!-- </div> -->
   </mat-toolbar>
 </header>
 <mat-sidenav-container class="example-container" autosize>
@@ -41,6 +47,14 @@
           <span class="full-width" *ngIf="isExpanded || isShowing"
             >Add Book</span
           >
+        </div>
+      </mat-list-item>
+      <mat-list-item (click)="bookmarksList()" class="parent">
+        <div class="icon-text">
+          <mat-icon mat-list-icon>bookmarks</mat-icon>
+          <span class="full-width" *ngIf="isExpanded || isShowing">
+            Bookmarks
+          </span>
         </div>
       </mat-list-item>
     </mat-nav-list>

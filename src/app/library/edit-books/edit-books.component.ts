@@ -52,6 +52,7 @@ export class EditBooksComponent {
     like: 0,
     dislike: 0,
     languages: [''],
+    bookmark: false,
   };
 
   movieForm = this.fb.group({

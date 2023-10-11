@@ -8,7 +8,7 @@
   </form>
 </div> -->
 <!-- <div class="whole"> -->
-  <div class="search">
+  <!-- <div class="search">
     <form [formGroup]="searchForm" class="search-form">
       <input
         formControlName="search"
@@ -31,11 +31,11 @@
           *ngFor="let mv of bookList"
           value="{{ mv.title }}"
         >
-          <!-- {{ mv.title }} -->
         </option>
       </datalist>
     </form>
-  </div>
+  </div> -->
+  <app-search></app-search>
   <section class="movies">
     <app-book
       *ngFor="let mv of bookList; let i = index"

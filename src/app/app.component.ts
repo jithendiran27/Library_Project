@@ -3,27 +3,20 @@ import { ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { LibraryService } from './library.service';
 import { Router } from '@angular/router';
-// import { MatSidenav } from '@angular/material';
 
 type Book = {
   id: string;
   title: string;
   author: string;
   genres: Array<string>;
-
   publishedYear: number;
   description: string;
   coverImageUrl: string;
-
-  // poster: string;
   rating: number;
-  // summary: string;
-  // trailer: string;
   bookmark: boolean;
   like: number;
   dislike: number;
   languages: Array<string>;
-  // date: string;
 };
 
 @Component({

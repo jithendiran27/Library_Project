@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import {
   Subscription,
@@ -15,10 +15,10 @@ import { LibraryService } from 'src/app/library.service';
   styleUrls: ['./books-list.component.css'],
 })
 export class BooksListComponent {
-  bookList: Array<Book> = [];
+  // @Input() searchList = '';
+  bookList: any;
   getMovieList: Subscription | any;
-  search_book: string = '';
-  // movieService: any;
+  // search_book: string = '';
   searchForm = this.fb.group({
     search: '',
   });
@@ -27,34 +27,39 @@ export class BooksListComponent {
     return this.searchForm.get('search');
   }
 
-  constructor(private libraryService: LibraryService, private fb: FormBuilder) {
-    // this.moviesList = movieService.movies;
-  }
+  constructor(
+    private libraryService: LibraryService,
+    private fb: FormBuilder
+  ) {}
   ngOnInit() {
-    // this.getMovieList = this.movieService
-    //   .getMovieListFromMockApi()
-    //   .subscribe((mvList: any) => {
-    //     this.movieList = mvList;
+    // this.search?.valueChanges
+    //   .pipe(
+    //     debounceTime(1500),
+    //     distinctUntilChanged(),
+    //     switchMap((name) => this.libraryService.searchBookList(name || ''))
+    //   )
+    //   .subscribe((mvList) => {
+    //     this.bookList = mvList;
     //   });
-    this.search?.valueChanges
-      .pipe(
-        debounceTime(1500),
-        distinctUntilChanged(),
-        switchMap((name) => this.libraryService.searchBookList(name || ''))
-      )
-      .subscribe((mvList) => {
-        this.bookList = mvList;
-      });
+    // this.getMovieList = this.searchList
+    // console.log(this.getMovieList)
+    // this.libraryService.getBookmarksFromApi().subscribe(()=>{})
+    this.getBooks();
     this.loadBooksData();
   }
 
+  getBooks() {
+    this.getMovieList = this.libraryService.getMovieListFromMockApi().subscribe((bookList:any)=>{
+      this.bookList=bookList;
+    })
+  }
+
   loadBooksData() {
-    this.getMovieList = this.libraryService
-      .getMovieListFromMockApi()
-      .subscribe((mvList: any) => {
-        this.bookList = mvList;
+    this.getMovieList = this.libraryService.currentBookList
+      .subscribe((bookList: any) => {
+        this.bookList = bookList;
+        console.log(bookList);
       });
-    console.log(this.search_book);
   }
 
   ngOnDestroy() {

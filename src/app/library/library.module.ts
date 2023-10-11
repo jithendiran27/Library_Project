@@ -30,6 +30,7 @@ import {
 // import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BookmarksComponent } from '../bookmarks/bookmarks.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { BookmarksComponent } from '../bookmarks/bookmarks.component';
     // ViewChild,
     // MatSidenavModule,
     MatToolbarModule,
+    SharedModule,
     // MatSidenav
   ],
 })

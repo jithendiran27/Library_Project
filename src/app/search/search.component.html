@@ -1,0 +1,30 @@
+<div class="search">
+    <form [formGroup]="searchForm" class="search-form">
+      <input
+        formControlName="search"
+        class="searchBar"
+        type="search"
+        name="search_book"
+        placeholder="Search Books"
+        list="search_list"
+      />
+
+      <!-- *ngIf="
+          searchForm.get('search')?.value !== null &&
+          searchForm.get('search')?.value !== ''
+        " -->
+
+      <datalist
+        id="search_list"
+        (click)="movieDetailsPage()"
+
+        >
+        <option
+          class="option"
+          *ngFor="let mv of bookList"
+          value="{{ mv.title }}"
+        >
+        </option>
+      </datalist>
+    </form>
+  </div>

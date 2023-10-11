@@ -1,19 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Book } from './app.component';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LibraryService {
-  bookList: Array<Book> = [];
+  // bookList: Array<Book> = [];
+
+  private bookList = new BehaviorSubject("");
+  currentBookList = this.bookList.asObservable();
 
   constructor(private http: HttpClient) {}
+
+  changeBookList(bookList: any) {
+    this.bookList.next(bookList)
+  }
 
   getMovieListFromMockApi() {
     return this.http.get<Book>(
       'https://64f6f4259d7754084952d8a9.mockapi.io/Books'
-    );
+    )
   }
   getMovieById(id: string) {
     return this.http.get<Book>(
@@ -39,7 +47,7 @@ export class LibraryService {
 
   updateBookmark(book: Book) {
     const id = book.id;
-    console.log(book)
+    console.log(book);
     return this.http.put(
       `https://64f6f4259d7754084952d8a9.mockapi.io/Books/${id}`,
       book
@@ -57,7 +65,7 @@ export class LibraryService {
       `https://64f6f4259d7754084952d8a9.mockapi.io/Books?title=${name}`
     );
   }
-  
+
   getBookmarksFromApi() {
     return this.http.get<Book>(
       'https://64f6f4259d7754084952d8a9.mockapi.io/Books?bookmark=true'

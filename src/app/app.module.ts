@@ -16,6 +16,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
+
+import { CommonModule } from '@angular/common';
+import { SharedModule } from './shared/shared.module';
+import { LibraryModule } from './library/library.module';
 // import { ToolBarComponent } from './tool-bar/tool-bar.component';
 
 @NgModule({
@@ -36,8 +40,12 @@ import { BookmarksComponent } from './bookmarks/bookmarks.component';
     MatSidenavModule,
     // FormBuilder,
     MatListModule,
+    SharedModule,
+    LibraryModule
   ],
+  
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
